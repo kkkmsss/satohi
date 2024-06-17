@@ -1,12 +1,12 @@
 databases:
-  - name: bistro select_DB
-    databaseName: bistro select_db
-    user: bistro select
+  - name: bs_DB
+    databaseName: bs_db
+    user: bistroselect
     region: singapore
 
 services:
   - type: web
-    name: bistro select
+    name: bistroselect
     env: ruby
     region: singapore
     plan: free
@@ -15,7 +15,7 @@ services:
     envVars:
       - key: DATABASE_URL
         fromDatabase:
-          name: bistro select
+          name: bistroselect
           property: connectionString
       - key: RAILS_MASTER_KEY
         sync: false
