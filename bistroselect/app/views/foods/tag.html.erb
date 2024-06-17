@@ -1,0 +1,30 @@
+<div class=tag>
+ <div class=tag-title>
+  タグ検索
+ </div>
+
+ <div class=tag-top>
+  <%= link_to "TOPへ", root_path %>
+ </div>
+
+ <div class=tag-a>
+  <%= form_tag({ controller: "foods", action: "tag" }, method: :get) do %>
+    <% Tag.all.each do |t| %>
+        <li><%= check_box_tag 'tag_ids[]', t.id %><%= t.name %></li>
+    <% end %>
+    <%= submit_tag '検索' %>
+  <% end %>
+
+  <%= form_tag({controller:"foods",action:"tag"}, method: :get) do %>
+    <%= text_field_tag :tag %>
+    <%= submit_tag 'タグを追加' %>
+    <br>
+    <br>
+    <br>
+  <% end %>
+
+  <% @foods.each do |food| %>
+    <p><%= food.name %></p>
+  <% end %>
+ <div/>
+</div>

@@ -1,0 +1,78 @@
+
+<h3>詳細</h3>
+<div class="food">
+  <p><%= @food.name %></p>
+  <p><%= @food.genre %></p>
+  <p><%= @food.about %></p>
+     <%= image_tag @food.resize_image_top if @food.image_top.attached? %>
+  <p><%= @food.bistro_genre %></p>
+  <p><%= @food.created_at %></p>
+  <p><%= @food.user.email %></p> 
+     <% @food.tags.each do |tag| %>
+       <span><%= tag.name %></span>
+     <% end %>
+  <div id='map'>
+</div>
+
+<style>
+#map {
+  height: 600px;
+  width: 100%;
+}
+</style>
+
+<!-- js部分 -->
+<script>
+//初期マップの設定
+let map
+let marker
+function initMap(){
+  geocoder = new google.maps.Geocoder()
+
+  map = new google.maps.Map(document.getElementById('map'), {
+    center:  {lat: <%= @food.lat %>, lng: <%= @food.lng %>},
+    zoom: 15,
+  });
+
+   marker = new google.maps.Marker({
+    position:  {lat: <%= @food.lat %>, lng: <%= @food.lng %>},
+    map: map
+  });
+}
+</script>
+<script src="https://maps.googleapis.com/maps/api/js?key=<%= ENV['GMAP_API'] %>&callback=initMap" async defer></script>　
+</div>
+
+
+<%= link_to "一覧に戻る", foods_path %>
+<%= link_to "編集する", edit_food_path(@food.id) %>
+
+<div id='map'></div>
+
+<style>
+#map {
+  height: 600px;
+  width: 100%;
+}
+</style>
+
+<!-- js部分 -->
+<script>
+//初期マップの設定
+let map
+let marker
+function initMap(){
+  geocoder = new google.maps.Geocoder()
+
+  map = new google.maps.Map(document.getElementById('map'), {
+    center:  {lat: <%= @food.lat %>, lng: <%= @food.lng %>},
+    zoom: 15,
+  });
+
+   marker = new google.maps.Marker({
+    position:  {lat: <%= @food.lat %>, lng: <%= @food.lng %>},
+    map: map
+  });
+}
+</script>
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDN1Mp6wqIolbGWzvyJGwvumdqUgesl8jI&callback=initMap" async defer></script>

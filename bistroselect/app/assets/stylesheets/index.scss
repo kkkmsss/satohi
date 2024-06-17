@@ -1,0 +1,92 @@
+
+h3{
+ font-size: 60px;
+ font-family: "Zen Maru Gothic", serif;
+ color:  rgb(120, 82, 59);
+ justify-content: center;
+ text-align: center;
+}
+
+a{ font-family: "Zen Maru Gothic", serif;
+   color:  rgb(120, 82, 59);
+   
+   
+}
+
+.food-container{
+    display: flex;
+    justify-content: center;
+    color:  rgb(120, 82, 59);
+    
+}
+
+.top{
+    font-size: 20px;
+    border: 2px;
+    border-radius: 50px;
+    border: solid;
+    padding: 10px 20px;
+    border-color: rgb(120, 82, 59);
+    width: 5%;
+    display: flex;
+    align-items: center;}
+
+.food-content{
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+    
+   
+
+.food{border: 15px solid rgb(120, 82, 59);
+      margin-top: 10px;
+      padding-top: 20px;
+      padding: 10px 20px;
+      font-family: "Zen Maru Gothic", serif;
+      background-color: rgb(255, 255, 255);
+      display: flex;
+      
+}
+
+.food li{
+    list-style: none;
+    margin-right: 20px;
+    margin-left: 40px;
+    border: solid;
+    padding: 10px 20px;
+    border-color: rgb(120, 82, 59);
+    border-radius: 50%;
+    font-family: "Zen Maru Gothic", serif;
+    font-size: 17px;
+    display: flex;
+    text-align: center;
+    height: 55px;
+    width: 35px;
+    align-items: center;
+    justify-content: center;
+   }
+
+.food a{
+    color:  rgb(120, 82, 59); 
+    display: flex;
+    }
+
+
+
+.food-a img{
+    width:280px;
+    height: 280px;
+}
+
+
+
+.food-a p{font-size: 35px;}
+
+.food-a{text-align: center;}
+
+.food-b
+{   display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}

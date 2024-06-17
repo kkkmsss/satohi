@@ -1,0 +1,21 @@
+databases:
+  - name: bistro select_DB
+    databaseName: bistro select_db
+    user: bistro select
+    region: singapore
+
+services:
+  - type: web
+    name: bistro select
+    env: ruby
+    region: singapore
+    plan: free
+    buildCommand: "./bin/render-build.sh"
+    startCommand: "bundle exec puma -C config/puma.rb"
+    envVars:
+      - key: DATABASE_URL
+        fromDatabase:
+          name: bistro select
+          property: connectionString
+      - key: RAILS_MASTER_KEY
+        sync: false

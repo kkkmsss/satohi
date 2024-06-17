@@ -1,0 +1,22 @@
+<body>
+<%= image_tag 'top.jpg', class:"top-image" %>
+
+
+ <div class= "container">
+  
+ <br>
+  <div class= "content">
+   <%= link_to '写真から探す', :controller => "foods", :action => "index" %>
+  </div>
+
+  <br>
+ <div class= "content">
+  <%= link_to 'タグから探す', :controller => "foods", :action => "tag" %>
+ </div>
+
+  <br>
+ <div class= "content">
+  <%= link_to "お店を投稿する", new_food_path %>
+ </div>
+
+</body>

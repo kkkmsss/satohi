@@ -1,0 +1,42 @@
+
+<h3>写真から探す</h3>
+
+
+<div class="foods-container">
+ <div class="top">
+  <%= link_to "TOPへ", root_path %>
+ </div>
+ <div class="food-content">
+  <% @foods.each do |t| %>
+     <div class="food">
+      <div class="food-a">
+       <%= image_tag t.resize_image_top if t.image_top.attached? %>
+       <br>
+       <p><%= t. name%></p>
+      </div>
+      <div class="food-b">
+       <li><%= link_to "詳細", food_path(t.id) %></li>
+       <li><%= link_to "編集", edit_food_path(t.id) %></li>
+       <li><%= link_to "削除", food_path(t.id), method: :delete %></li>
+      </div>
+     </div>
+  <% end %>
+   </div>
+</div>
+
+
+
+
+
+ 
+
+
+
+
+
+
+
+
+
+
+

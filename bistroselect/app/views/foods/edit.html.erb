@@ -1,0 +1,67 @@
+<div class="food">
+<%= form_for @food do |f| %>
+    <%= f.label :name %>
+    
+    <%= f.text_field :name, :size => 140 %> 
+  
+
+    <br>
+    <%= f.label :food_genre %>
+    <%= f.select :genre, 
+  [["和食", "和食"], 
+  ["中華", "中華"], 
+  ["イタリアン", "イタリアン"]], include_blank: "選択して下さい" %>
+   
+
+    <br>
+    <%= f.label :address %>
+    <%= f.text_field :address, :size => 140 %> 
+   
+
+    <br>
+    <%= f.label :about %>
+    <%= f.text_field :about, :size => 140 %> 
+    
+
+    <br>
+    <span class="image-top">
+      <%= f.label :image_top, '画像' %>
+      <%= f.file_field :image_top, accept: "image/jpeg,image/gif,image/png" %>
+    </span>
+    <script type="text/javascript">
+      $("#food_image_top, #food_images").bind("change", function() {
+      var size_in_megabytes = this.files[0].size/1024/1024;
+      if (size_in_megabytes > 5) {
+      alert("Maximum file size is 5MB. Please choose a smaller file.");
+      $("#food_image_top").val(""); }});
+    </script>
+  
+
+    <br>
+    <%= f.label :bistro_genre %>
+    <%= f.select :bistro_genre, 
+     [["定食屋", "定食屋"], 
+     ["レストラン", "レストラン"], 
+     ["居酒屋", "居酒屋"],
+     ["カフェ", "カフェ"]], include_blank: "選択して下さい" %>
+   <br><br>
+   
+   <%= f.collection_check_boxes(:tag_ids, Tag.all, :id, :name) do |tag| %>
+    <div class='form-check'>
+        <%= tag.label class: 'form-check-label' do %>
+            <%= tag.check_box class: 'form-check-input' %>
+            <%= tag.text %>
+            <% end %>
+            </div>
+            <% end %>
+
+   <%= f.label :lat,"緯度" %>
+      <%= f.text_field :lat,:value =>"緯度", id: :lat %>
+      <%= f.label :lng,"経度" %>
+      <%= f.text_field :lng,:value =>"経度", id: :lng %>
+
+            
+   <%= f.submit "編集する" %>
+
+   <% end %>
+</div>
